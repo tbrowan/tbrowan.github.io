@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
     <style>
-        /* --- 1. CSS VARIABLES (Your Color Palette) --- */
+        /* Theme color variables: update these first to restyle the full site quickly. */
         :root {
             --bg-black: #121212;
             --bg-grey: #1E1E1E;
@@ -20,7 +20,6 @@
             --text-grey: #CCCCCC;
         }
 
-        /* --- 2. RESET & BASE STYLES --- */
         * {
             margin: 0;
             padding: 0;
@@ -46,14 +45,13 @@
             transition: color 0.3s ease;
         }
 
-        /* --- 3. HEADER & NAVIGATION --- */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 2rem 5%;
             background-color: transparent;
-            position: absolute; /* Overlays on top of the hero section */
+            position: absolute;
             width: 100%;
             z-index: 10;
         }
@@ -80,7 +78,7 @@
             color: var(--crimson);
         }
 
-        /* --- 4. HERO BANNER --- */
+        /* Hero banner image and overlay settings. */
         #hero {
             height: 100vh;
             min-height: 600px;
@@ -97,7 +95,7 @@
         }
 
         #hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4.5rem); /* Responsive text sizing */
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
             letter-spacing: -1px;
             max-width: 800px;
         }
@@ -136,11 +134,9 @@
             border-color: var(--crimson-hover);
         }
 
-        /* --- 5. PORTFOLIO GRID (The "Forty" Tiles) --- */
         #portfolio {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            /* Remove the gap if you want the tiles to touch seamlessly like the template */
             gap: 0; 
         }
 
@@ -158,7 +154,6 @@
             transition: transform 0.3s ease;
         }
 
-        /* Hover effect for tiles */
         .tile:hover {
             background-color: #2a2a2a;
         }
@@ -176,13 +171,9 @@
             z-index: 2;
         }
 
-        /* Optional: If you want to add background images to tiles later */
         .tile.img-bg {
-            /* background-image: linear-gradient(rgba(18,18,18,0.7), rgba(18,18,18,0.7)), url('your-image.jpg'); */
-            /* background-size: cover; */
         }
 
-        /* --- 6. FOOTER --- */
         footer {
             background-color: var(--bg-black);
             padding: 4rem 5%;
@@ -195,7 +186,6 @@
             color: #666;
         }
 
-        /* --- 7. RESPONSIVE DESIGN --- */
         @media (max-width: 768px) {
             header {
                 flex-direction: column;
@@ -213,6 +203,7 @@
 </head>
 <body>
 
+    <!-- Header navigation: update anchor targets if section ids change. -->
     <header>
         <a href="index.html" class="logo"><strong>My</strong> <span>Portfolio</span></a>
         <nav>
@@ -222,6 +213,7 @@
         </nav>
     </header>
 
+    <!-- Hero content: edit your name, school, and intro text here. -->
     <section id="hero">
         <h1>Tyler Rowan | University of Alabama</h1>
         <p>I'm a student majoring in Management Information Systems (MIS) with a minor in Business Cybersecurity. I'm an MIS Ambassador passionate about leveraging technology to solve complex business problems.</p>
@@ -230,6 +222,12 @@
         </div>
     </section>
 
+    <!--
+        Portfolio tiles:
+        - Change href="#" to each real project URL.
+        - Update the image path inside each tile's inline style background-image url(...).
+        - Replace title and description text for each project.
+    -->
     <section id="portfolio">
         <a href="#" class="tile img-bg" style="background-image: linear-gradient(rgba(18,18,18,0.8), rgba(18,18,18,0.8)), url('images/data-base-bg.jpg'); background-size: cover; background-position: center;">
             <h3>Project One</h3>
@@ -257,6 +255,7 @@
         </a>
     </section>
 
+    <!-- Contact section: keep email, phone, and LinkedIn up to date. -->
     <footer id="contact">
         <h3>Let's Connect</h3>
                     <p>Feel free to reach out via email, phone, or LinkedIn!</p>

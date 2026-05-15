@@ -17,9 +17,35 @@
             --crimson: #9E1B32;
             --crimson-hover: #C0203D;
             --text-white: #FFFFFF;
-            --text-grey: #CCCCCC;
+            --text-grey: #D6D6D6;
+            
+        }
+        #about-panel {
+            display: none;
+            padding: 4rem 5%;
+            background: #181818;
+            border-top: 1px solid #333;
+        }
+        #about-panel.show {
+            display: block;
+            animation: fadeIn 250ms ease;
+        }
+        #about-panel .resume-link {
+            margin-top: 1rem;
+            display: inline-block;
+            max-width: 700px;
+        }
+        #about-panel .verse {
+            margin-top: 0.75rem;
+            font-style: italic;
+            color: #cfcfcf;
         }
 
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
         * {
             margin: 0;
             padding: 0;
@@ -27,7 +53,7 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Inter', sans-serif; 
             background-color: var(--bg-black);
             color: var(--text-grey);
             line-height: 1.6;
@@ -184,7 +210,7 @@
 
         footer p {
             font-size: 0.9rem;
-            color: #666;
+            color: #999;
         }
 
         @media (max-width: 768px) {
@@ -230,7 +256,7 @@
         - Replace title and description text for each project.
     -->
     <section id="portfolio">
-       <a href="https://github.com/tbrowan/Database-Management-Systems-Analysis-Python-ML" class="tile img-bg" target="_blank" rel="noopener noreferrer" style="background-image: linear-gradient(rgba(18,18,18,0.4), rgba(18,18,18,0.6)), url('images/data-base-bg.jpg'); background-size: cover; background-position: center;">
+        <a href="https://github.com/tbrowan/Database-Management-Systems-Analysis-Python-ML" class="tile img-bg" target="_blank" rel="noopener noreferrer" style="background-image: linear-gradient(rgba(18,18,18,0.4), rgba(18,18,18,0.6)), url('images/data-base-bg.jpg'); background-size: cover; background-position: center;">
             <h3>Database Management Systems Analysis | Python & ML</h3>
             <p>Financial analytics pipeline using descriptive, predictive, and prescriptive modeling.</p>
         </a>
@@ -242,13 +268,28 @@
             <h3>Project Three</h3>
             <p>Network infrastructure planning.</p>
         </a>
-        <a href="#" class="tile img-bg" style="background-image: linear-gradient(rgba(18,18,18,0.4), rgba(18,18,18,0.6)), url('images/about-me-bg.jpg'); background-size: cover; background-position: center;">
-            <h3>About Me + Resume</h3>
-            <p>Learn more about my background and download my resume.</p>
-        </a>
+        <a href="#" id="aboutTile" class="tile img-bg" style="background-image: linear-gradient(rgba(18,18,18,0.4), rgba(18,18,18,0.6)), url('images/about-me-bg.jpg'); background-size: cover; background-position: center;"> <h3>About Me + Resume</h3> <p>Learn more about my background and download my resume.</p> </a>
+        
+        
         <a href="https://github.com/tbrowan" class="tile img-bg" target="_blank" rel="noopener noreferrer" style="background-image: linear-gradient(rgba(18,18,18,0.4), rgba(18,18,18,0.6)), url('images/git-hub-bg.jpg'); background-size: cover; background-position: center;"> <h3>GitHub</h3> <p>Check out my profile.</p> </a>
         <a href="https://www.linkedin.com/in/tylerbrowan" class="tile img-bg" target="_blank" rel="noopener noreferrer" style="background-image: linear-gradient(rgba(18,18,18,0.4), rgba(18,18,18,0.6)), url('images/linkedin-bg.jpg'); background-size: cover; background-position: center;"> <h3>LinkedIn</h3> <p>View my professional profile.</p> </a>
         
+    </section>
+
+    <section id="about-panel" aria-hidden="true">
+        <h3>About Me</h3>
+        <p>
+            As a kid I have always been fascinated by how technology works and all the different ways it can be used. This passion and curiosity led me to pursue a degree in Management Information Systems.
+                I thrive on figuring out how things work whether that's constructing a project or optimizing a business workflow. If I'm not coding and trying to get better at my profession, then usually I'm with my friends and family, fishing, or playing video games.
+                I have always been a determined, hard worker and I am excited to see the impacts I can bring to a business and the world with the skills I am developing.
+        </p>
+        <p class="verse">
+            Colossians 3:23
+            <br>
+            "Whatever you do, work at it with all your heart, as working for the Lord, not for human masters."
+        </p>
+        <a class="button primary resume-link" href="images/tyler-rowan-resume.pdf" target="_blank" rel="noopener noreferrer">
+            Open Resume
         </a>
     </section>
 
@@ -258,9 +299,20 @@
                     <p>Feel free to reach out via email, phone, or LinkedIn!</p>
             <a href="mailto:tbrowan@crimson.ua.edu" class="button primary email-button">Email Me</a>
         <p style="margin-bottom: 2rem;">(256) 727-0989 | <a href="https://www.linkedin.com/in/tylerbrowan" target="_blank" style="color: var(--text-grey);">LinkedIn</a></p>
-        </div>
-        </div>
         <p>&copy; 2026 Tyler Rowan. Built from scratch.</p>
     </footer>
+    <script> 
+        const aboutTile = document.getElementById('aboutTile');
+        const aboutPanel = document.getElementById('about-panel');
+
+        aboutTile.addEventListener('click', (e) => {
+            e.preventDefault();
+            const isOpen = aboutPanel.classList.toggle('show');
+            aboutPanel.setAttribute('aria-hidden', String(!isOpen));
+            if (isOpen) {
+                aboutPanel.scrollIntoView({behavior: 'smooth', block: 'start'});
+            }
+        })
+    </script>
 </body>
 </html>

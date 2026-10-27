@@ -1,0 +1,114 @@
+/* Theme colors: update these first to restyle the full site quickly. */
+:root {
+    --bg-black: #121212;
+    --bg-grey: #1E1E1E;
+    --crimson: #9E1B32;
+    --crimson-hover: #C0203D;
+    --text-white: #FFFFFF;
+    --text-grey: #D6D6D6;
+    --border-grey: #333333;
+
+    /* Point Bootstrap's dark theme at our colors. */
+    --bs-body-bg: var(--bg-black);
+    --bs-body-color: var(--text-grey);
+    --bs-body-font-family: 'Inter', sans-serif;
+    --bs-heading-color: var(--text-white);
+}
+
+/* Bootstrap has no letter-spacing utility. */
+.letter-spaced {
+    letter-spacing: 2px;
+}
+
+.nav-link-custom {
+    color: var(--text-white);
+    transition: color 0.3s ease;
+}
+
+.nav-link-custom:hover {
+    color: var(--crimson);
+}
+
+/* Bootstrap has no crimson button, so we make one. */
+.btn-crimson {
+    --bs-btn-color: var(--text-white);
+    --bs-btn-bg: var(--crimson);
+    --bs-btn-border-color: var(--crimson);
+    --bs-btn-hover-color: var(--text-white);
+    --bs-btn-hover-bg: var(--crimson-hover);
+    --bs-btn-hover-border-color: var(--crimson-hover);
+    --bs-btn-border-radius: 0;
+    letter-spacing: 2px;
+}
+
+.hero {
+    min-height: 600px;
+    background-image: linear-gradient(rgba(18, 18, 18, 0.4), rgba(18, 18, 18, 0.6)), url('../../images/quad-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    border-bottom: 1px solid var(--border-grey);
+}
+
+.hero-text {
+    max-width: 600px;
+}
+
+.tile {
+    height: 40vh;
+    min-height: 300px;
+    color: var(--text-grey);
+    background-color: var(--bg-grey);
+    background-size: cover;
+    background-position: center;
+    border: 1px solid #222222;
+    transition: transform 0.3s ease;
+}
+
+.tile:hover {
+    color: var(--text-grey);
+    transform: translateY(-6px);
+}
+
+/* Each tile gets its own background image class instead of an inline style. */
+.tile-database {
+    background-image: linear-gradient(rgba(18, 18, 18, 0.4), rgba(18, 18, 18, 0.6)), url('../../images/data-base-bg.jpg');
+}
+
+/* The Pi logo is a small icon, not a photo, so it sits on the right instead of covering the tile. */
+.tile-pihole {
+    background-image: linear-gradient(rgba(18, 18, 18, 0.4), rgba(18, 18, 18, 0.6)), url('../../images/raspberry-pi-logo.svg');
+    background-size: cover, auto 60%;
+    background-position: center, right 2rem center;
+    background-repeat: no-repeat;
+}
+
+.tile-about {
+    background-image: linear-gradient(rgba(18, 18, 18, 0.4), rgba(18, 18, 18, 0.6)), url('../../images/about-me-bg.jpg');
+}
+
+.tile-github {
+    background-image: linear-gradient(rgba(18, 18, 18, 0.4), rgba(18, 18, 18, 0.6)), url('../../images/git-hub-bg.jpg');
+}
+
+.tile-linkedin {
+    background-image: linear-gradient(rgba(18, 18, 18, 0.4), rgba(18, 18, 18, 0.6)), url('../../images/linkedin-bg.jpg');
+}
+
+.about-panel {
+    background-color: #181818;
+    border-top: 1px solid var(--border-grey);
+    animation: fadeIn 250ms ease;
+}
+
+.verse {
+    color: #CFCFCF;
+}
+
+.site-footer {
+    border-top: 1px solid var(--border-grey);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}

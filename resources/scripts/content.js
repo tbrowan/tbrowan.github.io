@@ -15,7 +15,7 @@ const portfolioContent = {
         {
             title: 'Pi-Hole Project',
             description: 'Network-wide ad and tracker blocking with a self-hosted Pi-hole DNS server on a Raspberry Pi.',
-            url: null,
+            url: 'https://github.com/tbrowan/pihole-tailscale-dns-analytics',
             imageClass: 'tile-pihole'
         },
         {
